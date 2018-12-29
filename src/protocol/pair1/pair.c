@@ -524,13 +524,11 @@ static nni_proto_pipe_ops pair1_pipe_ops = {
 static nni_proto_option pair1_sock_options[] = {
 	{
 	    .o_name = NNG_OPT_MAXTTL,
-	    .o_type = NNI_TYPE_INT32,
 	    .o_get  = pair1_sock_get_maxttl,
 	    .o_set  = pair1_sock_set_maxttl,
 	},
 	{
 	    .o_name = NNG_OPT_PAIR1_POLY,
-	    .o_type = NNI_TYPE_BOOL,
 	    .o_get  = pair1_sock_get_poly,
 	    .o_set  = pair1_sock_set_poly,
 	},

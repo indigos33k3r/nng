@@ -23,7 +23,6 @@
 
 struct nni_proto_option {
 	const char *o_name;
-	int         o_type;
 	int (*o_get)(void *, void *, size_t *, nni_opt_type);
 	int (*o_set)(void *, const void *, size_t, nni_opt_type);
 };

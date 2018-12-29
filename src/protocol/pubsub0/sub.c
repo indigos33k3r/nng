@@ -355,12 +355,10 @@ static nni_proto_pipe_ops sub0_pipe_ops = {
 static nni_proto_option sub0_sock_options[] = {
 	{
 	    .o_name = NNG_OPT_SUB_SUBSCRIBE,
-	    .o_type = NNI_TYPE_OPAQUE,
 	    .o_set  = sub0_subscribe,
 	},
 	{
 	    .o_name = NNG_OPT_SUB_UNSUBSCRIBE,
-	    .o_type = NNI_TYPE_OPAQUE,
 	    .o_set  = sub0_unsubscribe,
 	},
 	// terminate list

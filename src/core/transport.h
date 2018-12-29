@@ -32,21 +32,17 @@ struct nni_tran_option {
 	// o_name is the name of the option.
 	const char *o_name;
 
-	// o_type is the type of the option.
-	nni_opt_type o_type;
-
 	// o_get retrieves the value of the option. The first argument is the
 	// dialer, listener, or pipe where the request is being made.
 	int (*o_get)(void *, void *, size_t *, nni_opt_type);
 
 	// o_set sets the value of the option.  The first argument is the
-	// dialer, listener, or pipe where the request is being made.
+	// dialer or listener where the request is being made, unless it is
+	// NULL. If the first value is NULL, then a generic validation
+	// of the option value and type are made, without regard to
+	// the actual endpoint.  (This is used when validation options
+	// set on sockets before the endpoint is created.)
 	int (*o_set)(void *, const void *, size_t, nni_opt_type);
-
-	// o_chk checks to see if the proposed value is legal -- this is
-	// checks only the type, size, and generic range validation.  This
-	// function can be called before any transport objects are created.
-	int (*o_chk)(const void *, size_t, nni_opt_type);
 };
 
 // Endpoint operations are called by the socket in a

@@ -34,8 +34,7 @@ struct nni_ctx {
 };
 
 typedef struct sock_option {
-	const char * o_name;
-	nni_opt_type o_type;
+	const char *o_name;
 	int (*o_get)(nni_sock *, void *, size_t *, nni_opt_type);
 	int (*o_set)(nni_sock *, const void *, size_t, nni_opt_type);
 } sock_option;
@@ -283,67 +282,55 @@ sock_get_peername(nni_sock *s, void *buf, size_t *szp, nni_opt_type t)
 static const sock_option sock_options[] = {
 	{
 	    .o_name = NNG_OPT_RECVTIMEO,
-	    .o_type = NNI_TYPE_DURATION,
 	    .o_get  = sock_get_recvtimeo,
 	    .o_set  = sock_set_recvtimeo,
 	},
 	{
 	    .o_name = NNG_OPT_SENDTIMEO,
-	    .o_type = NNI_TYPE_DURATION,
 	    .o_get  = sock_get_sendtimeo,
 	    .o_set  = sock_set_sendtimeo,
 	},
 	{
 	    .o_name = NNG_OPT_RECVFD,
-	    .o_type = NNI_TYPE_INT32,
 	    .o_get  = sock_get_recvfd,
 	},
 	{
 	    .o_name = NNG_OPT_SENDFD,
-	    .o_type = NNI_TYPE_INT32,
 	    .o_get  = sock_get_sendfd,
 	},
 	{
 	    .o_name = NNG_OPT_RECVBUF,
-	    .o_type = NNI_TYPE_INT32,
 	    .o_get  = sock_get_recvbuf,
 	    .o_set  = sock_set_recvbuf,
 	},
 	{
 	    .o_name = NNG_OPT_SENDBUF,
-	    .o_type = NNI_TYPE_INT32,
 	    .o_get  = sock_get_sendbuf,
 	    .o_set  = sock_set_sendbuf,
 	},
 	{
 	    .o_name = NNG_OPT_SOCKNAME,
-	    .o_type = NNI_TYPE_STRING,
 	    .o_get  = sock_get_sockname,
 	    .o_set  = sock_set_sockname,
 	},
 	{
 	    .o_name = NNG_OPT_RAW,
-	    .o_type = NNI_TYPE_BOOL,
 	    .o_get  = sock_get_raw,
 	},
 	{
 	    .o_name = NNG_OPT_PROTO,
-	    .o_type = NNI_TYPE_INT32,
 	    .o_get  = sock_get_proto,
 	},
 	{
 	    .o_name = NNG_OPT_PEER,
-	    .o_type = NNI_TYPE_INT32,
 	    .o_get  = sock_get_peer,
 	},
 	{
 	    .o_name = NNG_OPT_PROTONAME,
-	    .o_type = NNI_TYPE_STRING,
 	    .o_get  = sock_get_protoname,
 	},
 	{
 	    .o_name = NNG_OPT_PEERNAME,
-	    .o_type = NNI_TYPE_STRING,
 	    .o_get  = sock_get_peername,
 	},
 	// terminate list

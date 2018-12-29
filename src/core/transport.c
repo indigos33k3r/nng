@@ -133,9 +133,8 @@ nni_tran_chkopt(const char *name, const void *v, size_t sz, int typ)
 				nni_mtx_unlock(&nni_tran_lk);
 				return (NNG_EREADONLY);
 			}
-
-			rv = (o->o_chk != NULL) ? o->o_chk(v, sz, typ) : 0;
 			nni_mtx_unlock(&nni_tran_lk);
+			rv = o->o_set(NULL, v, sz, typ);
 			return (rv);
 		}
 		lops = t->t_tran.tran_listener;
@@ -147,9 +146,8 @@ nni_tran_chkopt(const char *name, const void *v, size_t sz, int typ)
 				nni_mtx_unlock(&nni_tran_lk);
 				return (NNG_EREADONLY);
 			}
-
-			rv = (o->o_chk != NULL) ? o->o_chk(v, sz, typ) : 0;
 			nni_mtx_unlock(&nni_tran_lk);
+			rv = o->o_set(NULL, v, sz, typ);
 			return (rv);
 		}
 	}

@@ -359,7 +359,6 @@ static nni_proto_pipe_ops xsurv0_pipe_ops = {
 static nni_proto_option xsurv0_sock_options[] = {
 	{
 	    .o_name = NNG_OPT_MAXTTL,
-	    .o_type = NNI_TYPE_INT32,
 	    .o_get  = xsurv0_sock_get_maxttl,
 	    .o_set  = xsurv0_sock_set_maxttl,
 	},
